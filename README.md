@@ -56,7 +56,7 @@ const products = [
 
 const processedProducts = producePipe(pipeline)
 
-products.map(processedProducts).forEach(console.log)
+products.map(processedProducts)
 ```
 
 Result
