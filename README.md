@@ -11,7 +11,7 @@ npm i -S immer immer-produce-pipeline
 
 ## Usage
 ```js
-import producePipe from 'immer-produce-pipeline'
+import producePipeline from 'immer-produce-pipeline'
 ```
 ## Advantages
 Using a pipeline is a good practice when processing data, each function is small, easily testable and immutable. This provides pure consistent results. Same input and pipeline = same output.
@@ -40,7 +40,7 @@ const vat = draft => {
 Then we will build our pipeline, to run against each product
 ```js
 // A pipeline is just an array of functions wrapped in producers
-const pipeline = producePipe([percentageDiscount(0.05), vat])
+const pipeline = producePipeline([percentageDiscount(0.05), vat])
 
 const products = [
   { price: 110, vatRate: 0.05, dicountable: 0 },
