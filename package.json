@@ -17,7 +17,9 @@
     "lint": "tsdx lint",
     "prepare": "tsdx build"
   },
-  "peerDependencies": {},
+  "peerDependencies": {
+    "immer": "^6.0.1"
+  },
   "husky": {
     "hooks": {
       "pre-commit": "tsdx lint"

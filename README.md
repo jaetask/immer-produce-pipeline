@@ -11,7 +11,7 @@ npm i -S immer immer-produce-pipeline
 
 ## Usage
 ```js
-import producePipe from 'immer-produce-pipe'
+import producePipe from 'immer-produce-pipeline'
 ```
 ## Advantages
 Using a pipeline is a good practice when processing data, each function is small, easily testable and immutable. This provides pure consistent results. Same input and pipeline = same output.
