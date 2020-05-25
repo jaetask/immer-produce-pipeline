@@ -55,8 +55,6 @@ const products = [
 ]
 
 const processedProducts = producePipe(pipeline)
-
-products.map(processedProducts)
 ```
 
 Result
