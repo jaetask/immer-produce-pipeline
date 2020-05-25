@@ -54,8 +54,10 @@ const products = [
   { price: 987, vatRate: 0.2, dicountable: 1 }
 ]
 
+// build the pipeline
 const processedProducts = producePipe(pipeline)
 
+// run the pipeline against each product
 products.map(processedProducts)
 ```
 
