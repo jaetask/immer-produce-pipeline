@@ -29,9 +29,9 @@
     "singleQuote": true,
     "trailingComma": "es5"
   },
-  "name": "immer-produce-pipe",
+  "name": "immer-produce-pipeline",
   "author": "Jae Task",
-  "module": "dist/immer-produce-pipe.esm.js",
+  "module": "dist/immer-produce-pipeline.esm.js",
   "devDependencies": {
     "husky": "^4.2.5",
     "immer": "^6.0.8",

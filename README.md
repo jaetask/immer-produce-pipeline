@@ -1,11 +1,11 @@
-# Immer produce pipe
+# Immer produce pipeline
 
 > Pipe's an array of producer functions through `immer` producer
 
 
 ## Install
 ```js
-npm i -S immer immer-produce-pipe
+npm i -S immer immer-produce-pipeline
 ```
 > Prerequisite: Requires [Immer](https://immerjs.github.io/immer/docs/introduction) to be pre-installed as a dependency
 
@@ -17,10 +17,10 @@ import producePipe from 'immer-produce-pipe'
 Using a pipeline is a good practice when processing data, each function is small, easily testable and immutable. This provides pure consistent results. Same input and pipeline = same output.
 
 ## Example
+In this example we are going to apply a percentage discount and then calculate vat for some products.
 
-Create some functions to use
+First we create our pipeline functions
 ```js
-
 const percentageDiscount = discount => draft => {
   draft.discounted = false
   draft.pricePostDiscount = draft.price
@@ -37,28 +37,19 @@ const vat = draft => {
 }
 ```
 
-Build a pipeline
+Then we will build our pipeline, to run against each product
 ```js
-// just an array of functions, 
-// so you could push items onto the pipeline using logic or whatever
+// A pipeline is just an array of functions wrapped in producers
+const pipeline = producePipe([percentageDiscount(0.05), vat])
 
-const pipeline = [percentageDiscount(0.05), vat]
-
-```
-
-Now process some product data
-```js
 const products = [
   { price: 110, vatRate: 0.05, dicountable: 0 },
   { price: 37.5, vatRate: 0.2, dicountable: 1 },
   { price: 987, vatRate: 0.2, dicountable: 1 }
 ]
 
-// build the pipeline
-const processedProducts = producePipe(pipeline)
-
 // run the pipeline against each product
-products.map(processedProducts)
+const processed = products.map(pipeline)
 ```
 
 Result
